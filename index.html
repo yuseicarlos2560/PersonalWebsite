@@ -34,6 +34,7 @@
 </nav>
 
 <section class="home" id="home">
+    <div class="hero-bg"></div>
     <div class="home__container">
         <div class="home__content">
             <h1 data-key="hello__greet" class="hello">Hi, I am <strong>Carlos</strong></h1>
@@ -41,6 +42,7 @@
                 <h2 data-key="hello__l1" class="title">BNU Business School student</h2>
                 <h2 data-key="hello__l2" class="title">with experience in <strong>Software Development</strong></h2>
             </div>
+            <p class="hero-tagline" data-key="hero__tagline">Bridging deep technical engineering with strategic product thinking.</p>
             <div class="hero-btns">
                 <a href="#case-studies" class="btn-primary" data-key="nav__case-studies">Case Studies</a>
                 <a href="#experience" class="btn-outline" data-key="nav__experience">Experience</a>
@@ -49,50 +51,68 @@
 
         <div class="home__images">
             <div class="image-col col-1">
-                <div class="img-wrapper small"><img src="img/IMG_6199.JPG" alt="Dance"></div>
+                <div class="img-wrapper small" data-parallax="1"><img src="img/IMG_6199.JPG" alt="Dance"></div>
             </div>
             <div class="image-col col-2">
-                <div class="img-wrapper main"><img src="img/IMG_7262.jpg" alt="Beijing"></div>
+                <div class="img-wrapper main" data-parallax="2"><img src="img/IMG_7262.jpg" alt="Beijing"></div>
             </div>
             <div class="image-col col-3">
-                <div class="img-wrapper small"><img src="img/IMG_3921.jpg" alt="Seattle"></div>
-                <div class="img-wrapper small"><img src="img/IMG_6490.jpg" alt="Study"></div>
+                <div class="img-wrapper small" data-parallax="1"><img src="img/IMG_3921.jpg" alt="Seattle"></div>
+                <div class="img-wrapper small" data-parallax="3"><img src="img/IMG_6490.jpg" alt="Study"></div>
             </div>
         </div>
     </div>
+    <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+        <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
+        <span class="scroll-text" data-key="scroll__text">Scroll</span>
+    </a>
 </section>
 
 <section class="about section" id="about">
     <div class="container">
         <h2 class="section-title" data-key="about__header">What I Do</h2>
         <div class="about__grid">
-            <div class="about__card">
+            <div class="about__card" data-card="1">
+                <span class="card-badge">01</span>
                 <div class="card-icon">
                     <i class="fas fa-chart-line"></i>
                 </div>
                 <h3 data-key="about__data-driven__title">Data-Driven Decisions</h3>
                 <p data-key="about__data-driven__content">Transforming complex data into clear, measurable financial improvements.</p>
             </div>
-            <div class="about__card">
+            <div class="about__card" data-card="2">
+                <span class="card-badge">02</span>
                 <div class="card-icon">
                     <i class="fas fa-microchip"></i>
                 </div>
                 <h3 data-key="about__ai-business__title">AI for Business</h3>
                 <p data-key="about__ai-business__content">Leading AI projects from conception to production deployment with measurable impact.</p>
             </div>
-            <div class="about__card">
+            <div class="about__card" data-card="3">
+                <span class="card-badge">03</span>
                 <div class="card-icon">
                     <i class="fas fa-users-gear"></i>
                 </div>
                 <h3 data-key="about__cross-func__title">Cross-Functional</h3>
                 <p data-key="about__cross-func__content">Aligning specialized departments on project milestones and long-term delivery.</p>
             </div>
-            <div class="about__card">
+            <div class="about__card" data-card="4">
+                <span class="card-badge">04</span>
                 <div class="card-icon">
                     <i class="fas fa-globe-americas"></i>
                 </div>
                 <h3 data-key="about__global__title">Global Perspective</h3>
                 <p data-key="about__global__content">Communicating across cultures for seamless collaboration and product development.</p>
+            </div>
+        </div>
+        <div class="trusted-by">
+            <p class="trusted-by__label" data-key="trusted__label">Trusted experience from</p>
+            <div class="trusted-by__logos">
+                <span class="trusted-logo">AWS</span>
+                <span class="trusted-separator">·</span>
+                <span class="trusted-logo">Duke University</span>
+                <span class="trusted-separator">·</span>
+                <span class="trusted-logo" data-key="trusted__bnu">Beijing Normal University</span>
             </div>
         </div>
     </div>

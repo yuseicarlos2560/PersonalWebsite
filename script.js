@@ -45,6 +45,72 @@ window.addEventListener('scroll', () => {
 
 init();
 
+// Typewriter rotating text effect
+const rotatingTitles = [
+    "Product Manager",
+    "Data Scientist",
+    "Software Engineer",
+    "BNU Graduate Student"
+];
+let titleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typeSpeed = 100;
+
+function typeWriter() {
+    const container = document.querySelector('.title__container');
+    if (!container) return;
+    
+    const currentTitle = rotatingTitles[titleIndex];
+    const secondLine = container.querySelector('.title:nth-child(2)');
+    if (!secondLine) return;
+    
+    // Update the second line with typewriter effect
+    const displayText = isDeleting
+        ? currentTitle.substring(0, charIndex - 1)
+        : currentTitle.substring(0, charIndex + 1);
+    
+    secondLine.innerHTML = `with experience in <strong>${displayText}</strong>${!isDeleting && charIndex < currentTitle.length ? '<span class="cursor">|</span>' : ''}`;
+    
+    if (!isDeleting) {
+        charIndex++;
+        typeSpeed = 100;
+        if (charIndex === currentTitle.length) {
+            isDeleting = true;
+            typeSpeed = 2000; // Pause at full word
+        }
+    } else {
+        charIndex--;
+        typeSpeed = 50;
+        if (charIndex === 0) {
+            isDeleting = false;
+            titleIndex = (titleIndex + 1) % rotatingTitles.length;
+            typeSpeed = 500; // Pause before typing next
+        }
+    }
+    
+    setTimeout(typeWriter, typeSpeed);
+}
+
+// Start typewriter after initial load
+setTimeout(typeWriter, 1500);
+
+// Parallax effect on hero images
+window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const heroSection = document.querySelector('.home');
+    if (!heroSection) return;
+    
+    const heroHeight = heroSection.offsetHeight;
+    if (scrolled > heroHeight) return;
+    
+    const parallaxElements = document.querySelectorAll('[data-parallax]');
+    parallaxElements.forEach(el => {
+        const speed = parseInt(el.getAttribute('data-parallax')) * 0.03;
+        el.style.transform = `translateY(${scrolled * speed}px)`;
+    });
+});
+
 function toggleNotes() {
     const modal = document.getElementById("notesModal");
     if (modal.style.display === "block") {
