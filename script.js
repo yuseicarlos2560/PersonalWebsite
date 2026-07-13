@@ -32,6 +32,21 @@ function applyLanguage(lang) {
         }
     });
 
+    // Handle typewriter visibility based on language
+    const slot = document.getElementById('typewriter-slot');
+    if (slot) {
+        if (lang === 'en') {
+            slot.style.display = 'block';
+            if (!isTypewriterRunning) {
+                isTypewriterRunning = true;
+                typeWriter();
+            }
+        } else {
+            slot.style.display = 'none';
+            stopTypewriter();
+        }
+    }
+
     // Update labels
     document.querySelector('.en-label').classList.toggle('active', lang === 'en');
     document.querySelector('.zh-label').classList.toggle('active', lang === 'zh');
@@ -56,21 +71,50 @@ let titleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 let typeSpeed = 100;
+let typewriterTimer = null;
+let isTypewriterRunning = false;
+
+function startTypewriter() {
+    const slot = document.getElementById('typewriter-slot');
+    if (!slot) return;
+    
+    // Only show in English
+    if (currentLang !== 'en') {
+        slot.style.display = 'none';
+        return;
+    }
+    
+    slot.style.display = 'block';
+    isTypewriterRunning = true;
+    typeWriter();
+}
+
+function stopTypewriter() {
+    isTypewriterRunning = false;
+    if (typewriterTimer) {
+        clearTimeout(typewriterTimer);
+        typewriterTimer = null;
+    }
+}
 
 function typeWriter() {
-    const container = document.querySelector('.title__container');
-    if (!container) return;
+    if (!isTypewriterRunning || currentLang !== 'en') return;
+    
+    const textEl = document.querySelector('.typewriter-text');
+    if (!textEl) return;
     
     const currentTitle = rotatingTitles[titleIndex];
-    const secondLine = container.querySelector('.title:nth-child(2)');
-    if (!secondLine) return;
     
-    // Update the second line with typewriter effect
     const displayText = isDeleting
         ? currentTitle.substring(0, charIndex - 1)
         : currentTitle.substring(0, charIndex + 1);
     
-    secondLine.innerHTML = `with experience in <strong>${displayText}</strong>${!isDeleting && charIndex < currentTitle.length ? '<span class="cursor">|</span>' : ''}`;
+    textEl.textContent = displayText;
+    
+    const cursorEl = document.querySelector('.typewriter-slot .cursor');
+    if (cursorEl) {
+        cursorEl.style.display = (!isDeleting && charIndex < currentTitle.length) ? 'inline' : 'none';
+    }
     
     if (!isDeleting) {
         charIndex++;
@@ -89,11 +133,11 @@ function typeWriter() {
         }
     }
     
-    setTimeout(typeWriter, typeSpeed);
+    typewriterTimer = setTimeout(typeWriter, typeSpeed);
 }
 
 // Start typewriter after initial load
-setTimeout(typeWriter, 1500);
+setTimeout(startTypewriter, 1500);
 
 // Parallax effect on hero images
 window.addEventListener('scroll', () => {

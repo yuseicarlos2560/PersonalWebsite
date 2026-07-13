@@ -83,6 +83,34 @@ body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(
 .title { font-size: 1.5rem; font-weight: 400; color: var(--text-main); line-height: 1.4; }
 .title strong { color: var(--secondary); }
 
+/* Typewriter Slot */
+.typewriter-slot {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-main);
+    line-height: 1.4;
+    margin-top: 0.3rem;
+    min-height: 2.1rem; /* Fixed height to prevent layout jump */
+    white-space: nowrap;
+}
+
+.typewriter-prefix {
+    color: var(--text-main);
+}
+
+.typewriter-text {
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+.typewriter-slot .cursor {
+    display: inline;
+    animation: blink 1s step-end infinite;
+    color: var(--secondary);
+    font-weight: 300;
+    margin-left: 2px;
+}
+
 .hero-tagline {
     font-size: 1.1rem;
     color: var(--text-muted);
