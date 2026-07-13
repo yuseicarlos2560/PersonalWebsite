@@ -166,6 +166,27 @@ function toggleNotes() {
     }
 }
 
+// Mobile menu toggle
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.getElementById('menu');
+
+if (menuToggle && menu) {
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        menu.classList.toggle('active');
+        document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+    });
+    
+    // Close menu when clicking a link
+    menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            menu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    });
+}
+
 // Close modal if user clicks outside of the content
 window.onclick = function(event) {
     const modal = document.getElementById("notesModal");
