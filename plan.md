@@ -144,20 +144,17 @@ A case study format is the gold standard for PM portfolios. It demonstrates:
 
 ---
 
-## Section 5: On the Mandarin Learning Platform (WIP Project)
+## Section 5: On the Mandarin Learning Platform
 
-### Recommendation: SKIP for now, but prepare for later.
+### Status: SHIPPED (added to portfolio)
 
-**Reasoning:**
-- A backend-only project is hard to showcase visually. Recruiters want to see and interact.
-- "Work in progress" signals unfinished thinking. Better to launch it when it's complete.
-- **However:** You can mention it briefly in the case studies or personal brand section as "currently building a Mandarin learning platform" to show ongoing product initiative.
-- **When to add:** Once you have a frontend + demo video or live link.
+MandoLearning reached public alpha (alpha.mandolearning.com) with a full frontend
+(8 pages) and 3 backend microservices, so the original "skip until there's a
+frontend + live link" condition no longer applies.
 
-### Alternative: Add a "Currently Building" teaser
-- A small card in the case studies section: "Mandarin Learning Platform — In Progress"
-- 1 sentence about the problem you're solving.
-- No link yet. Just signals initiative.
+It was added as a dedicated **Projects** section between Case Studies and
+Publications, framed as a 0→1 founder story (Problem / Role / Process / Outcome),
+with a live link and a product screenshot (`img/mandolearning-video-session.jpg`).
 
 ---
 
@@ -169,7 +166,7 @@ A case study format is the gold standard for PM portfolios. It demonstrates:
 | Skills & Tools | Add new categorized section | 🔴 High |
 | Personal Brand | Rename and reframe Fun Facts | 🟡 Medium |
 | Chinese Translation | Optimize terminology and flow | 🟡 Medium |
-| WIP Project | Skip for now, add teaser if desired | 🟢 Low |
+| WIP Project | Done — added as dedicated "Projects" section (MandoLearning alpha) | ✅ Shipped |
 
 ---
 

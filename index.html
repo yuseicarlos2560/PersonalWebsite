@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carlos Gustavo Salas Flores | Product & Tech</title>
+    <script>
+    (function () {
+        var t = new URLSearchParams(location.search).get('theme');
+        if (t === 'off') { localStorage.removeItem('pref-theme'); t = null; }
+        else if (t) { localStorage.setItem('pref-theme', t); }
+        else { t = localStorage.getItem('pref-theme'); }
+        if (t) { document.documentElement.setAttribute('data-theme', t); }
+    })();
+    </script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,6 +41,7 @@
             <div class="menu" id="menu">
                 <a data-key="nav__home" href="#home">Home</a>
                 <a data-key="nav__case-studies" href="#case-studies">Case Studies</a>
+                <a data-key="nav__projects" href="#projects">Projects</a>
                 <a data-key="nav__about" href="#about">About</a>
                 <a data-key="nav__experience" href="#experience">Experience</a>
                 <a data-key="nav__contact" href="#contact">Contact</a>
@@ -373,6 +383,66 @@
                     <span class="skill-tag">Dependency Resolution</span>
                     <span class="skill-tag">Influence Without Authority</span>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="projects section" id="projects">
+    <div class="container">
+        <h2 class="section-title" data-key="projects__header">Projects</h2>
+        <p class="section-subtitle" data-key="projects__intro">Products I've designed and built end-to-end — from identifying the problem to shipping a live product.</p>
+
+        <div class="project-card">
+            <div class="project-card__visuals">
+                <a class="project-card__visual" href="https://alpha.mandolearning.com" target="_blank" aria-label="MandoLearning live alpha">
+                    <img src="img/mandolearning-video-session.jpg" alt="MandoLearning video lesson with synced script and notes">
+                    <span class="project-card__badge" data-key="project-1__badge">Alpha · Live</span>
+                </a>
+                <a class="project-card__visual" href="https://alpha.mandolearning.com" target="_blank" aria-label="MandoLearning culture session">
+                    <img src="img/mandolearning-culture-session.jpg" alt="MandoLearning culture session">
+                </a>
+            </div>
+            <div class="project-card__content">
+                <div class="case-study__meta">
+                    <span class="case-study__tag">EdTech</span>
+                    <span class="case-study__tag" data-key="project-1__tag-0to1">0→1 Product</span>
+                    <span class="case-study__tag" data-key="project-1__tag-fullstack">Full-Stack</span>
+                </div>
+                <h3>MandoLearning</h3>
+                <p class="project-card__role-line" data-key="project-1__role-line">Founder & Solo Builder — Mandarin Learning Platform</p>
+                <div class="case-study__metric">
+                    <span class="metric-value">0→1</span>
+                    <span class="metric-label" data-key="project-1__metric">Designed, built & shipped solo</span>
+                </div>
+                <div class="case-study__section">
+                    <h4 data-key="case-study__problem">Problem</h4>
+                    <p data-key="project-1__problem">Mandarin learning tools are fragmented — videos, notes, and flashcards live in separate apps, so new words never get systematically reviewed.</p>
+                </div>
+                <div class="case-study__section">
+                    <h4 data-key="case-study__role">My Role</h4>
+                    <p data-key="project-1__role">Founder & solo builder — wrote the PRD, designed the learning loop, built the full stack, shipped the alpha.</p>
+                </div>
+                <div class="case-study__section">
+                    <h4 data-key="case-study__process">Process</h4>
+                    <ul class="case-study__list">
+                        <li data-key="project-1__process-1">One closed loop: watch → save words → review flashcards → track stats.</li>
+                        <li data-key="project-1__process-2">AWS infra as code (CDK): CloudFront + S3, auto-scaling Spring Boot, DynamoDB, serverless JWT auth; GitHub Actions CI/CD at ~$35/month.</li>
+                    </ul>
+                </div>
+                <div class="case-study__section">
+                    <h4 data-key="case-study__outcome">Outcome</h4>
+                    <p data-key="project-1__outcome">Live alpha at alpha.mandolearning.com — 8 core features, 3 REST microservices.</p>
+                </div>
+                <div class="case-study__skills">
+                    <span class="skill-tag" data-key="project-1__skill-strategy">Product Strategy</span>
+                    <span class="skill-tag" data-key="project-1__skill-prd">PRD Writing</span>
+                    <span class="skill-tag">Java / Spring Boot</span>
+                    <span class="skill-tag" data-key="project-1__skill-aws">AWS (CDK, DynamoDB, CloudFront)</span>
+                    <span class="skill-tag" data-key="project-1__skill-cicd">CI/CD · GitHub Actions</span>
+                    <span class="skill-tag" data-key="project-1__skill-ux">UX Design</span>
+                </div>
+                <a href="https://alpha.mandolearning.com" target="_blank" class="btn-primary project-card__cta" data-key="project-1__cta">Visit the Live Alpha ↗</a>
             </div>
         </div>
     </div>
